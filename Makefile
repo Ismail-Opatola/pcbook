@@ -5,4 +5,8 @@ run:
 	go run src/main.go
 
 clean:
-	rm build/gen/*.go
+	powershell clear
+	powershell rm build/gen/*.go	
+
+# Read me
+# https://dev.to/deciduously/how-to-make-a-makefile-1dep
