@@ -42,3 +42,46 @@
 - define task `gen:` `<generate protocode code>`
 - define task `clean:` `<the build/gen file whenever we want>`
 - define task `run:` to run the `main.go` file as well
+
+## NOTE: IMPORT ERROR ISSUE
+
+Tried to import `memory_message.proto` in `processor_message.proto`
+
+Throws error warning in the editor when using absolute path `"memory_message.proto"` but compiles succesfully
+
+Error fixed with relative path `"pcbook/src/proto/memory_message.proto"` but fails when compiled.
+
+**SOLUTION:**
+vscode > extension > vscode-proto3 | scroll-down and copy config snippet
+
+      {
+      "protoc": {
+            "path": "/path/to/protoc",
+            "compile_on_save": false,
+            "options": [
+                  "--proto_path=protos/v3",
+                  "--proto_path=protos/v2",
+                  "--proto_path=${workspaceRoot}/proto",
+                  "--proto_path=${env.GOPATH}/src",
+                  "--java_out=gen/java"
+            ]
+      }
+      }
+
+**NEXT:**
+vscode - preference > settings | enter search "protoc", click `Edit in Setting.json` paste the config to get the path, run `which protoc` in terminal. copy the path and paste in the setting.json `protoc {path: ""}`
+
+snippet
+
+      "protoc": {
+      "path": "C:\\ProgramData\\chocolatey\\bin\\protoc.EXE",
+      "compile_on_save": false,
+      "options": ["--proto_path=proto"]
+      }
+
+**NEXT:**
+Make sure you have clang-format extension installed in vscode, then install clang-format on pc
+
+      choco install llvm
+
+In proto file, right click and select `Format document` option, set clang-format as document formatter
