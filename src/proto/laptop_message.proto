@@ -1,7 +1,12 @@
 syntax = "proto3";
+
 package package.pcbook;
+
 // option go_package = "pb";
 option go_package = "../../build/gen";
+option java_package = "com.github.techshcool.pcbook.pb";
+option java_multiple_files = true;
+
 import "processor_message.proto";
 import "memory_message.proto";
 import "storage_message.proto";
@@ -20,7 +25,7 @@ message Laptop {
   Screen screen = 8;
   Keyboard keyboard = 9;
   oneof wieght {
-    // onlt the feild that get assigned last will keep its value
+    // only the feild that get assigned last will keep its value
     double weight_kg = 10;
     double weight_lb = 11;
   }
