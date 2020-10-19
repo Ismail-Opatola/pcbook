@@ -2,8 +2,7 @@ syntax = "proto3";
 
 package package.pcbook;
 
-// option go_package = "pb";
-option go_package = "../../build/gen";
+option go_package = "../../pb";
 option java_package = "com.github.techshcool.pcbook.pb";
 option java_multiple_files = true;
 
@@ -13,7 +12,7 @@ message CPU {
   string brand = 1;
   string name = 2;
   uint32 number_cores = 3;
-  uint32 number_threds = 4;
+  uint32 number_threads = 4;
   double min_ghz = 5;
   double max_ghz = 6;
 }

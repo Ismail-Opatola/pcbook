@@ -181,3 +181,8 @@ install protocol gradle plugin from google. google `protobuf java gradle`
 
 **NETX:** In your **Java project**, go to `src/main` folder > create a `proto` folder | copy-over all our `proto/*.proto` files in the Golang project to the folder
 
+## create/initialize a go module
+
+run `go mod init github.com/techschool/pcbook`
+
+create a smaple package `mkdir sample` and `touch sample/generator.go`

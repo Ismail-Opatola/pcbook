@@ -4,7 +4,7 @@
 // 	protoc        v3.12.3
 // source: laptop_message.proto
 
-package gen
+package pb
 
 import (
 	timestamp "github.com/golang/protobuf/ptypes/timestamp"
@@ -35,10 +35,10 @@ type Laptop struct {
 	Storages []*Storage `protobuf:"bytes,7,rep,name=storages,proto3" json:"storages,omitempty"`
 	Screen   *Screen    `protobuf:"bytes,8,opt,name=screen,proto3" json:"screen,omitempty"`
 	Keyboard *Keyboard  `protobuf:"bytes,9,opt,name=keyboard,proto3" json:"keyboard,omitempty"`
-	// Types that are assignable to Wieght:
+	// Types that are assignable to Weight:
 	//	*Laptop_WeightKg
 	//	*Laptop_WeightLb
-	Wieght      isLaptop_Wieght      `protobuf_oneof:"wieght"`
+	Weight      isLaptop_Weight      `protobuf_oneof:"weight"`
 	PriceUsd    float64              `protobuf:"fixed64,12,opt,name=price_usd,json=priceUsd,proto3" json:"price_usd,omitempty"`
 	ReleaseYear uint32               `protobuf:"varint,13,opt,name=release_year,json=releaseYear,proto3" json:"release_year,omitempty"`
 	UpdatedAt   *timestamp.Timestamp `protobuf:"bytes,14,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
@@ -139,22 +139,22 @@ func (x *Laptop) GetKeyboard() *Keyboard {
 	return nil
 }
 
-func (m *Laptop) GetWieght() isLaptop_Wieght {
+func (m *Laptop) GetWeight() isLaptop_Weight {
 	if m != nil {
-		return m.Wieght
+		return m.Weight
 	}
 	return nil
 }
 
 func (x *Laptop) GetWeightKg() float64 {
-	if x, ok := x.GetWieght().(*Laptop_WeightKg); ok {
+	if x, ok := x.GetWeight().(*Laptop_WeightKg); ok {
 		return x.WeightKg
 	}
 	return 0
 }
 
 func (x *Laptop) GetWeightLb() float64 {
-	if x, ok := x.GetWieght().(*Laptop_WeightLb); ok {
+	if x, ok := x.GetWeight().(*Laptop_WeightLb); ok {
 		return x.WeightLb
 	}
 	return 0
@@ -181,12 +181,12 @@ func (x *Laptop) GetUpdatedAt() *timestamp.Timestamp {
 	return nil
 }
 
-type isLaptop_Wieght interface {
-	isLaptop_Wieght()
+type isLaptop_Weight interface {
+	isLaptop_Weight()
 }
 
 type Laptop_WeightKg struct {
-	// onlt the feild that get assigned last will keep its value
+	// only the feild that get assigned last will keep its value
 	WeightKg float64 `protobuf:"fixed64,10,opt,name=weight_kg,json=weightKg,proto3,oneof"`
 }
 
@@ -194,9 +194,9 @@ type Laptop_WeightLb struct {
 	WeightLb float64 `protobuf:"fixed64,11,opt,name=weight_lb,json=weightLb,proto3,oneof"`
 }
 
-func (*Laptop_WeightKg) isLaptop_Wieght() {}
+func (*Laptop_WeightKg) isLaptop_Weight() {}
 
-func (*Laptop_WeightLb) isLaptop_Wieght() {}
+func (*Laptop_WeightLb) isLaptop_Weight() {}
 
 var File_laptop_message_proto protoreflect.FileDescriptor
 
@@ -246,9 +246,10 @@ var file_laptop_message_proto_rawDesc = []byte{
 	0x74, 0x18, 0x0e, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65,
 	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74,
 	0x61, 0x6d, 0x70, 0x52, 0x09, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x42, 0x08,
-	0x0a, 0x06, 0x77, 0x69, 0x65, 0x67, 0x68, 0x74, 0x42, 0x11, 0x5a, 0x0f, 0x2e, 0x2e, 0x2f, 0x2e,
-	0x2e, 0x2f, 0x62, 0x75, 0x69, 0x6c, 0x64, 0x2f, 0x67, 0x65, 0x6e, 0x62, 0x06, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x33,
+	0x0a, 0x06, 0x77, 0x65, 0x69, 0x67, 0x68, 0x74, 0x42, 0x2d, 0x0a, 0x1f, 0x63, 0x6f, 0x6d, 0x2e,
+	0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x74, 0x65, 0x63, 0x68, 0x73, 0x68, 0x63, 0x6f, 0x6f,
+	0x6c, 0x2e, 0x70, 0x63, 0x62, 0x6f, 0x6f, 0x6b, 0x2e, 0x70, 0x62, 0x50, 0x01, 0x5a, 0x08, 0x2e,
+	0x2e, 0x2f, 0x2e, 0x2e, 0x2f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (

@@ -2,8 +2,7 @@ syntax = "proto3";
 
 package package.pcbook;
 
-// option go_package = "pb";
-option go_package = "../../build/gen";
+option go_package = "../../pb";
 option java_package = "com.github.techshcool.pcbook.pb";
 option java_multiple_files = true;
 

@@ -2,8 +2,7 @@ syntax = "proto3";
 
 package package.pcbook;
 
-// option go_package = "pb";
-option go_package = "../../build/gen";
+option go_package = "../../pb";
 option java_package = "com.github.techshcool.pcbook.pb";
 option java_multiple_files = true;
 
@@ -24,7 +23,7 @@ message Laptop {
   repeated Storage storages = 7;
   Screen screen = 8;
   Keyboard keyboard = 9;
-  oneof wieght {
+  oneof weight {
     // only the feild that get assigned last will keep its value
     double weight_kg = 10;
     double weight_lb = 11;
